@@ -1,0 +1,117 @@
+use AddressDetails
+'switched to db AddressDetails'
+db.createCollection('AddressData')
+{ ok: 1 }
+1
+1
+show dbs
+AddressDetails    8.00 KiB
+admin            40.00 KiB
+config          108.00 KiB
+local            40.00 KiB
+productDB        72.00 KiB
+db.AddressData.insertMany([{houseNo:23,streetName:'main Deve street',city:"new York",zipcode:7002}])
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("637de7195f2391e454bb92bf") } }
+db.AddressData.find()
+{ _id: ObjectId("637de7195f2391e454bb92bf"),
+  houseNo: 23,
+  streetName: 'main Deve street',
+  city: 'new York',
+  zipcode: 7002 }
+db.AddressData.insertMany([{houseNo:24,streetName:'main jenney street',city:"USA",zipcode:7001}])
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("637de7735f2391e454bb92c0") } }
+db.AddressData.insertMany([{houseNo:25,streetName:'main DILHI street',city:"INDIA",zipcode:7005}])
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("637de7a05f2391e454bb92c1") } }
+db.AddressData.insertMany([{houseNo:26,streetName:'main dev street',city:"CHINA",zipcode:7006}])
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("637de7d55f2391e454bb92c2") } }
+db.AddressData.find()
+{ _id: ObjectId("637de7195f2391e454bb92bf"),
+  houseNo: 23,
+  streetName: 'main Deve street',
+  city: 'new York',
+  zipcode: 7002 }
+{ _id: ObjectId("637de7735f2391e454bb92c0"),
+  houseNo: 24,
+  streetName: 'main jenney street',
+  city: 'USA',
+  zipcode: 7001 }
+{ _id: ObjectId("637de7a05f2391e454bb92c1"),
+  houseNo: 25,
+  streetName: 'main DILHI street',
+  city: 'INDIA',
+  zipcode: 7005 }
+{ _id: ObjectId("637de7d55f2391e454bb92c2"),
+  houseNo: 26,
+  streetName: 'main dev street',
+  city: 'CHINA',
+  zipcode: 7006 }
+db.AddressData.insertMany([{houseNo:27,streetName:'main jem street',city:"england",zipcode:7007}])
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("637de9985f2391e454bb92c3") } }
+db.AddressData.find()
+{ _id: ObjectId("637de7195f2391e454bb92bf"),
+  houseNo: 23,
+  streetName: 'main Deve street',
+  city: 'new York',
+  zipcode: 7002 }
+{ _id: ObjectId("637de7735f2391e454bb92c0"),
+  houseNo: 24,
+  streetName: 'main jenney street',
+  city: 'USA',
+  zipcode: 7001 }
+{ _id: ObjectId("637de7a05f2391e454bb92c1"),
+  houseNo: 25,
+  streetName: 'main DILHI street',
+  city: 'INDIA',
+  zipcode: 7005 }
+{ _id: ObjectId("637de7d55f2391e454bb92c2"),
+  houseNo: 26,
+  streetName: 'main dev street',
+  city: 'CHINA',
+  zipcode: 7006 }
+{ _id: ObjectId("637de9985f2391e454bb92c3"),
+  houseNo: 27,
+  streetName: 'main jem street',
+  city: 'england',
+  zipcode: 7007 }
+db.AddressData.count()
+5
+db.AddressData.count({city: 'new York'})
+1
+db.AddressData.find({city: 'new York',city:{$lt:CHINA}})
+ReferenceError: CHINA is not defined
+db.AddressData.find({city: 'new York',city:{$lt:'CHINA'}})
+db.AddressData.find({city: 'new York',city:{$lt:'CHINA'}})
+db.AddressData.find({city: 'new York',city:'CHINA'})
+{ _id: ObjectId("637de7d55f2391e454bb92c2"),
+  houseNo: 26,
+  streetName: 'main dev street',
+  city: 'CHINA',
+  zipcode: 7006 }
+db.AddressData.find({city: 'new York','CHINA'})
+db.AddressData.find({ $or:[{city: 'new York'},{houseNo: 26}] })
+{ _id: ObjectId("637de7195f2391e454bb92bf"),
+  houseNo: 23,
+  streetName: 'main Deve street',
+  city: 'new York',
+  zipcode: 7002 }
+{ _id: ObjectId("637de7d55f2391e454bb92c2"),
+  houseNo: 26,
+  streetName: 'main dev street',
+  city: 'CHINA',
+  zipcode: 7006 }
+db.AddressData.find({ $or:[{city: 'new York'},{city: 'USA'}] })
+{ _id: ObjectId("637de7195f2391e454bb92bf"),
+  houseNo: 23,
+  streetName: 'main Deve street',
+  city: 'new York',
+  zipcode: 7002 }
+{ _id: ObjectId("637de7735f2391e454bb92c0"),
+  houseNo: 24,
+  streetName: 'main jenney street',
+  city: 'USA',
+  zipcode: 7001 }
