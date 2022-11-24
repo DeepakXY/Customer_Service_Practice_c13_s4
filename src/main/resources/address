@@ -115,3 +115,44 @@ db.AddressData.find({ $or:[{city: 'new York'},{city: 'USA'}] })
   streetName: 'main jenney street',
   city: 'USA',
   zipcode: 7001 }
+  db.AddressData.find({ $or:[{city: 'new York'},{city: 'USA'}] })
+  { _id: ObjectId("637de7195f2391e454bb92bf"),
+    houseNo: 23,
+    streetName: 'main Deve street',
+    city: 'new York',
+    zipcode: 7002 }
+  { _id: ObjectId("637de7735f2391e454bb92c0"),
+    houseNo: 24,
+    streetName: 'main jenney street',
+    city: 'USA',
+    zipcode: 7001 }
+  db.AddressData.find({zipcode: 7001, $or:[{city: 'new York'},{city: 'USA'}] })
+  { _id: ObjectId("637de7735f2391e454bb92c0"),
+    houseNo: 24,
+    streetName: 'main jenney street',
+    city: 'USA',
+    zipcode: 7001 }
+  db.AddressData.find({zipcode: 70001, $or:[{city: 'new York'},{city: 'USA'}] })
+  db.AddressData.deleteOne({zipcode: 7007})
+  { acknowledged: true, deletedCount: 1 }
+  db.AddressData.find()
+  { _id: ObjectId("637de7195f2391e454bb92bf"),
+    houseNo: 23,
+    streetName: 'main Deve street',
+    city: 'new York',
+    zipcode: 7002 }
+  { _id: ObjectId("637de7735f2391e454bb92c0"),
+    houseNo: 24,
+    streetName: 'main jenney street',
+    city: 'USA',
+    zipcode: 7001 }
+  { _id: ObjectId("637de7a05f2391e454bb92c1"),
+    houseNo: 25,
+    streetName: 'main DILHI street',
+    city: 'INDIA',
+    zipcode: 7005 }
+  { _id: ObjectId("637de7d55f2391e454bb92c2"),
+    houseNo: 26,
+    streetName: 'main dev street',
+    city: 'CHINA',
+    zipcode: 7006 }
